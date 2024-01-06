@@ -19,13 +19,49 @@ namespace ConsoleApp1
             sym = _sym;
         }
        
+        public Point(Point p)
+        {
+            X = p.X;
+            Y = p.Y;
+            sym = p.sym;
+        }
 
+        public void Move(int offset, Direction direction)
+        {
+            if(direction == Direction.RIGHT)
+            {
+                X = X + offset;
+            }
+            else if (direction == Direction.LEFT)
+            {
+                X = X - offset;
+            }
+            else if(direction == Direction.UP)
+            {
+                Y = Y - offset;
+            }
+            else if(direction == Direction.DOWN)
+            {
+                Y = Y + offset;
+            }
+        }
 
         public void Draw()
         {
             Console.SetCursorPosition(X, Y);
             Console.Write(sym);
         }
-        
+
+        public void Clear()
+        {
+            sym = ' ';
+            Draw();
+        }
+
+        public override string ToString()
+        {
+            return X + ", " + Y + ", " + sym;
+        }
+
     }
 }

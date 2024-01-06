@@ -27,8 +27,21 @@ namespace ConsoleApp1
             
             //Отрисовка точек
             Point p = new Point(4, 5, '*');
-            p.Draw();
-            Console.ReadLine();
+            Snake snake = new Snake(p, 4, Direction.RIGHT);
+            snake.Drow();
+            
+
+            while(true)
+            {
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.HandleKey(key.Key);
+                    
+                }
+                Thread.Sleep(100);
+                snake.Move();
+            }
         }
     }
 }
