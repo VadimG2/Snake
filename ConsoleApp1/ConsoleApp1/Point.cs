@@ -12,11 +12,11 @@ namespace ConsoleApp1
         public int Y;
         public char sym;
 
-        public Point(int _x, int _y, char _sym)
+        public Point(int x, int y, char sym)
         {
-            X = _x;
-            Y = _y;
-            sym = _sym;
+            this.X = x;
+            this.Y = y;
+            this.sym = sym;
         }
        
         public Point(Point p)
@@ -51,7 +51,7 @@ namespace ConsoleApp1
             return p.X == this.X && p.Y == this.Y;
         }
 
-        public void Draw()
+        public virtual void Draw()
         {
             Console.SetCursorPosition(X, Y);
             Console.Write(sym);
